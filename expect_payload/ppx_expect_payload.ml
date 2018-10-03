@@ -70,7 +70,7 @@ let make ~kind payload ~(extension_id_loc:Location.t) =
     and rest_must_be_empty i =
       match get i with
       | None -> ()
-      | Some (' ' | '\t' | '\n') ->
+      | Some (' ' | '\r' | '\t' | '\n') ->
         rest_must_be_empty (i + 1)
       | Some _  ->
         Location.raise_errorf ~loc:body_loc
