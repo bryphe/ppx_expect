@@ -113,7 +113,7 @@ module Make(C : Expect_test_config.S) = struct
       File.Name.relative_to ~dir:(File.initial_dir ()) t.filename
 
     let with_ic fname ~f =
-      let ic = open_in fname in
+      let ic = open_in_bin fname in
       protect ~finally:(fun () -> close_in ic) ~f:(fun () -> f ic)
 
     let get_outputs_and_cleanup t =
